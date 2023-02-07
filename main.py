@@ -11,17 +11,17 @@ from forms import RegisterForm, CreatePostForm, LoginForm, CommentForm
 from functools import wraps
 from sqlalchemy.orm import relationship
 from flask_gravatar import Gravatar
-
+import os
 
 # Get current year to add to footer
 CURRENT_YEAR = datetime.now().year
-OWN_EMAIL = 'irweezy@yahoo.com'
-OWN_PASSWORD = 'keqdveludaxjlapz!'
-
+OWN_EMAIL = os.environ['EMAIL']
+OWN_PASSWORD = os.environ['OWN_PASSWORD']
+test = 'test'
 
 SALT_LENGTH = 8
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 
 # Run app through various classes
 ckeditor = CKEditor(app)
