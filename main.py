@@ -113,7 +113,7 @@ class Comment(db.Model):
 def home():
     # Why does this need to be with app.app_context()
     # with app.app_context():
-    # db.create_all()
+    db.create_all()
     blog_posts = db.session.query(BlogPost).order_by(BlogPost.date.desc()).all()
     print(blog_posts)
     print('stop')
